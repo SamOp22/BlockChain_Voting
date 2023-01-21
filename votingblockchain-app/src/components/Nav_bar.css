@@ -15,6 +15,7 @@ img {
 }
 
 nav {
+    
     height: 6vh;
     width: 100%;
     display: flex;
@@ -73,6 +74,7 @@ a:hover {
     width: 40px;
     height: 21px;
     text-decoration: none;
+    display: none;
 
 }
 
@@ -84,40 +86,60 @@ a:hover {
     text-decoration: none;
 }
 
+    
+
+
+.search input{
+    padding: 6px;
+    border:4px 4px black;
+    border-radius: 0.7rem;
+    border-width: 0.15rem;
+    font-size: 17px;
+  }
 
 @media only screen and (max-width: 600px) {
 
+    nav input{
+        display: none;
+    }
     nav{
         flex-direction: column;
         align-items: flex-start;
     }
 
     .navlinks{
-        display: none;
-
-    }
-
-    .navlinks{
-        margin-top: 1rem;
+       display: none;
+       margin-top: 1rem;
         flex-direction: column;
         align-items: flex-end;
         width: 100%;
+
     }
+
     .navlinks a{
         text-align: center;
         margin-right: 2rem;
         padding: 0.5rem ;
-    }
-    a:hover::after{
-        width: 100%;
-       
     }
 
     a::after{
         bottom: 1px;
     }
 
-    .navlinks:active{
-        display:flex;
+    .toggle-button{
+        display: flex;
     }
+
+    .toggle-button a{
+        text-decoration: none;
+        width: 0;
+        
+    }
+
+   #click:checked ~ * .navlinks{
+        display: flex;
+   }
+
+
 }
+
