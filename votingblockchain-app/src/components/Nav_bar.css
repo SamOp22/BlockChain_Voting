@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+nav {
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    min-width: 300px;
+    box-shadow: 2px 2px 8px rgb(217, 217, 217);
+
+}
+
+.navlinks {
+
+    width: 40vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    justify-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.4px;
+    color: black;
+    padding: 0 5px;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to right, rgba(0, 160, 204, 0.281), rgb(0, 179, 229));
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -5px;
+    transition: 0.5s;
+}
+
+a:hover:after {
+    width: 100%;
+}
+
+a:hover {
+    color: black;
+}
+
+.toggle-button{
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 21px;
+    text-decoration: none;
+
+}
+
+.toggle-button .bar{
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    nav{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navlinks{
+        display: none;
+
+    }
+
+    .navlinks{
+        margin-top: 1rem;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+    }
+    .navlinks a{
+        text-align: center;
+        margin-right: 2rem;
+        padding: 0.5rem ;
+    }
+    a:hover::after{
+        width: 100%;
+       
+    }
+
+    a::after{
+        bottom: 1px;
+    }
+
+    .navlinks:active{
+        display:flex;
+    }
+}

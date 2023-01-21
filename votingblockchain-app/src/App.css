@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&family=Source+Sans+Pro&family=Ubuntu:wght@500&display=swap');
+
+.page{
+margin: auto;
+font-family: 'Fredoka', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+}
