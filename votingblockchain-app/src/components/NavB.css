@@ -7,33 +7,33 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-img {
+    
+nav img {
     height: 2.5rem;
     border-radius: 50%;
     margin-left: 5px;
 }
 
 nav {
-    
+    background-color: white;
     height: 6vh;
-    width: 100%;
+    width: 300%;
     display: flex;
     align-items: center;
-    min-width: 300px;
     box-shadow: 2px 2px 8px rgb(217, 217, 217);
 
 }
 
 .navlinks {
-
+    background-color: white;
     width: 40vw;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-a {
+.Li{ 
+    background-color: white;
     position: relative;
     text-decoration: none;
     display: flex;
@@ -45,7 +45,7 @@ a {
     padding: 0 5px;
 }
 
-a::after {
+.Li::after {
     content: "";
     position: absolute;
     background-image: linear-gradient(to right, rgba(0, 160, 204, 0.281), rgb(0, 179, 229));
@@ -56,15 +56,16 @@ a::after {
     transition: 0.5s;
 }
 
-a:hover:after {
+.Li:hover:after {
     width: 100%;
 }
 
-a:hover {
+.Li:hover {
     color: black;
 }
 
 .toggle-button{
+    background-color: white;
     position: absolute;
     top: .75rem;
     right: 1rem;
@@ -86,10 +87,14 @@ a:hover {
     text-decoration: none;
 }
 
-    
+.search{
+    background-color: white;
+}
 
 
 .search input{
+    color: white;
+    background-color: white;
     padding: 6px;
     border:4px 4px black;
     border-radius: 0.7rem;
@@ -100,7 +105,7 @@ a:hover {
 @media only screen and (max-width: 600px) {
 
     nav input{
-        display: none;
+       display: none;
     }
     nav{
         flex-direction: column;
@@ -116,13 +121,13 @@ a:hover {
 
     }
 
-    .navlinks a{
+    .navlinks .Li{
         text-align: center;
         margin-right: 2rem;
         padding: 0.5rem ;
     }
 
-    a::after{
+    .Li::after{
         bottom: 1px;
     }
 
@@ -130,15 +135,11 @@ a:hover {
         display: flex;
     }
 
-    .toggle-button a{
+    .toggle-button .Li{
         text-decoration: none;
         width: 0;
         
     }
-
-   #click:checked ~ * .navlinks{
-        display: flex;
-   }
 
 
 }

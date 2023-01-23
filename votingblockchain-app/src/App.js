@@ -1,13 +1,21 @@
 import './App.css';
-import Nav_bar from "./components/Nav_bar";
 import Homepage from "./components/Homepage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavB from "./components/NavB"
+import Profile from './components/Profile';
+import MainHeader from './components/MainHeader'
 
 function App() {
   return (
-    <div className='page'>
-      <Nav_bar/>
-      <Homepage/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<MainHeader/>} >
+          <Route index element={<Homepage/>} />
+          <Route path='/Profile' element={<Profile />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
