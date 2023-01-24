@@ -8,8 +8,12 @@ import './Homepage.css';
 export default function Homepage() {
     return (
         <>
+        <body>
+        <div className="navv">
             <NavB/>
+            </div>
             <Outlet/>
+            </body>
 
         </>
 

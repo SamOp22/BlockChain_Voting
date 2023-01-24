@@ -1,8 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+*{
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+}
 
-.Navbar{
-    position: fixed;
-    top: 0;
-    
+.navb{
+  position: sticky;
+  top: 0;
+  
 
+}
+
+.main-content {
+  display:flex;
+  justify-content: center;
+
+  
+}
+.main-content .head{
+  
+}
+.main-content .head h1{
+  font-size: 5rem;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   
+}
+.main-box{
+  display: flex;
+  justify-content: center;
+}
+.box{
+  border-radius: 3rem;
+  box-shadow: 2px 2px 8px rgb(122, 122, 122);
+  margin-top: 4rem;
+  background-color: rgb(255, 255, 255);
+  height: 25rem;
+  width: 90rem;
+  justify-content: center;
+  
+}
+
+@keyframes slideInLeft {
+  0% {
+    width: 90rem;;
+  }
+  100% {
+     width: 20rem;
+  }
+}
+
+.sub-box{
+  border-radius: 3rem;
+  box-shadow: 2px 2px 8px rgb(122, 122, 122);
+  background-color: rgb(123, 19, 151);
+  height: 25rem;
+  width: 20rem;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out forwards;
+  justify-content: center;
+  animation-duration: 2s;
+  animation-name: slideInLeft;
+  align-items: center;
+  display: flex ;
+  
+  
+}
+
+.sub-box img{
+  height: 10rem;
+  animation-duration: 2s;
+  animation-name:addAnimation;
+  
+
+}
+
+@keyframes addAnimation {
+  0% {
+    display: none;
+  }
+  90%{
+    display: none;
+    height: 10rem;
+  }
+
+  100% {
+    display:block;
+     height: 10rem;
+  }
 }

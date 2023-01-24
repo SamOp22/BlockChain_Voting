@@ -1,13 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
+#page{
+    box-sizing: border-box;
+    
+}
+
 *,
 *::before,
 *::after {
+   
+   
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
+    
 }
     
+
 nav img {
     height: 2.5rem;
     border-radius: 50%;
@@ -17,10 +27,10 @@ nav img {
 nav {
     background-color: white;
     height: 6vh;
-    width: 300%;
+    width:300%;
     display: flex;
     align-items: center;
-    box-shadow: 2px 2px 8px rgb(217, 217, 217);
+    box-shadow: 2px 2px 8px rgb(122, 122, 122);
 
 }
 
@@ -48,7 +58,7 @@ nav {
 .Li::after {
     content: "";
     position: absolute;
-    background-image: linear-gradient(to right, rgba(0, 160, 204, 0.281), rgb(0, 179, 229));
+    background-image: linear-gradient(to right, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
     height: 3px;
     width: 0;
     left: 0;
