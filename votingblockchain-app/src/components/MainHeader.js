@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import NavB from "./NavB";
-import './Homepage.css';
+import './css_/Homepage.css';
 
 
 
@@ -10,7 +10,7 @@ export default function Homepage() {
         <>
         <body>
         <div className="navv">
-            <NavB/>
+            <NavB/> 
             </div>
             <Outlet/>
             </body>

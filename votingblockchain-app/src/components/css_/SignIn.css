@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+
+
+
+.navb{
+    position: sticky;
+    top: 0;
+    z-index: 42;
+    
+  
+}
+
+.content{
+    display: flex;
+    
+
+}
+
+.side-panel{
+
+    background-image: linear-gradient(to right, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
+    height: 100rem;
+    width: 45rem;
+    margin-left: -20rem;
+    margin-top: -10rem;
+    box-shadow: 2px 2px 8px rgb(122, 122, 122);
+    transform: rotate(18deg);   
+    animation-iteration-count: 1;
+  animation-timing-function: ease-in-out forwards;
+  animation-duration: 1.5s;
+  animation-name: slidepanel;
+  position: fixed;
+    
+}
+
+@keyframes slidepanel {
+      0% {
+        width: 0rem;;
+      }
+      100% {
+         width: 45rem;
+      }
+    
+}
+
+
+.side-panel img{
+    height: 15rem;
+    margin-top: 24rem;
+    margin-left: 22rem;
+    animation-duration: 2s;
+    animation-name:addAnimation;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity: 0;
+
+   
+  }
+
+  @keyframes addAnimation {
+    50% {
+      visibility: hidden;
+      opacity: 0.1;
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .signin-box{
+     background-color: rgb(255, 255, 255);
+     margin-left: 45rem;
+     margin-top: 10rem;
+     height: 45rem;
+     width: 68rem;
+     animation-duration: 3s;
+     animation-name:boxAnimation;
+     animation-fill-mode: forwards;
+     visibility: hidden;
+      opacity: 0;
+  }
+
+  @keyframes boxAnimation {
+    50% {
+      visibility: hidden;
+      opacity: 0.1;
+      
+    }
+    100% {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  header .header{   
+    font-size: 40px;
+  background-color: #fff;
+  height: 20px;
+}
+.login-header h3{
+    font-size: 50px;
+}
+.login-header p{
+    font-size: 20px;
+}
+header a img{
+  width: 134px;
+margin-top: 4px;
+}
+
+  .login-page {
+    width: 500px;
+    padding: 8% 0 0;
+    margin: auto;
+  }
+  .login-page .form .login{
+    margin-top: -31px;
+  margin-bottom: 26px;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 760px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+   
+  }
+  .form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 30px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+  .form button {
+    border-radius: 30px;
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background-color: #99037e;
+    background-image: linear-gradient(to right, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 16px;
+  }
+  .form .message a {
+    color: #c422bc;
+    text-decoration: none;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }

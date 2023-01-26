@@ -16,13 +16,28 @@
 .main-content {
   display:flex;
   justify-content: center;
+  animation-duration: 1.5s;
+  animation-name:headAnimation;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  opacity: 0;
+  
+}
+@keyframes headAnimation{
+  50% {
+    visibility: hidden;
+    opacity: 0.1;
+    
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+}
 
-  
-}
-.main-content .head{
-  
-}
 .main-content .head h1{
+
   font-size: 5rem;
   margin-top: 4rem;
   display: flex;
@@ -30,6 +45,18 @@
   justify-content: center;
    
 }
+
+.main-content .head h1::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
+  margin:auto ;
+  display: block;
+
+}
+
+
 .main-box{
   display: flex;
   justify-content: center;
@@ -41,8 +68,33 @@
   background-color: rgb(255, 255, 255);
   height: 25rem;
   width: 90rem;
-  justify-content: center;
+  display: flex;
+  box-sizing: border-box;
+  position: relative; 
   
+}
+
+.box p{
+  position: absolute;
+  margin-left: 23rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  animation-duration: 3s;
+  animation-name:pAnimation;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  opacity: 0;
+}
+@keyframes pAnimation {
+  50% {
+    visibility: hidden;
+    opacity: 0.1;
+    
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
@@ -63,33 +115,29 @@
   animation-iteration-count: 1;
   animation-timing-function: ease-in-out forwards;
   justify-content: center;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   animation-name: slideInLeft;
   align-items: center;
   display: flex ;
-  
-  
+  z-index: 3;
 }
 
 .sub-box img{
   height: 10rem;
   animation-duration: 2s;
   animation-name:addAnimation;
-  
-
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  opacity: 0;
 }
 
 @keyframes addAnimation {
-  0% {
-    display: none;
+  50% {
+    visibility: hidden;
+    opacity: 0.1;
   }
-  90%{
-    display: none;
-    height: 10rem;
-  }
-
   100% {
-    display:block;
-     height: 10rem;
+    visibility: visible;
+    opacity: 1;
   }
 }

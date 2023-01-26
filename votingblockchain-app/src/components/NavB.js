@@ -1,5 +1,6 @@
 import React from 'react'
-import './NavB.css';
+import './css_/NavB.css';
+import { Outlet } from "react-router-dom";
 import {Link} from "react-router-dom"
 import {NavLink} from "react-router-dom"
 import {useNavigate} from "react-router-dom"
@@ -34,6 +35,10 @@ const goHome = () => {
                 <NavLink to="/" className='Li'>Results</NavLink>
                 <NavLink to="/" className='Li'>Contact</NavLink>
                 <NavLink to="/" className='Li'>About</NavLink> 
+            </div>
+            <div className='login'>
+                <NavLink to="/SignIn"  className='Li'>Login</NavLink>
+                <Outlet/>
             </div>
              
         </nav>

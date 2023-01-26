@@ -27,12 +27,13 @@ nav img {
 nav {
     background-color: white;
     height: 6vh;
-    width:300%;
+    width:100%;
     display: flex;
     align-items: center;
     box-shadow: 2px 2px 8px rgb(122, 122, 122);
 
 }
+
 
 .navlinks {
     background-color: white;
@@ -40,6 +41,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+nav .login{
+    margin-left: 62rem;
 }
 
 .Li{ 
