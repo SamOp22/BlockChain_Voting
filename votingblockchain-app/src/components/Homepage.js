@@ -8,7 +8,7 @@ import NavB from "./NavB";
 export default function Homepage() {
     return (
         <>
-            <body>
+           
                 <div className="navb">
                     <NavB />
                 </div>
@@ -27,8 +27,9 @@ export default function Homepage() {
                         <p>A blockchain is a distributed database or ledger that is shared among the nodes of a computer network. As a database, a blockchain stores information electronically in digital format. Blockchains are best known for their crucial role in cryptocurrency systems, such as Bitcoin, for maintaining a secure and decentralized record of transactions.</p>
                     </div>
                 </div>
+                
 
-            </body>
+           
         </>
 
     )

@@ -1,0 +1,11 @@
+.admin_navlinks {
+    background-color: white;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logout{
+    margin-left: 75rem;
+}

@@ -1,26 +1,18 @@
-import React from 'react'
-import './css_/NavB.css';
+import React from "react";
 import { Outlet } from "react-router-dom";
 import {Link} from "react-router-dom"
 import {NavLink} from "react-router-dom"
 import {useNavigate} from "react-router-dom"
+import "./css_/Adminpage.css"
 
 
-export default function NavB() {
-    const navigate = useNavigate();
-const goHome = () => {
-    navigate('/')
-   
-}
-
+export default function Adminpage() {
     return (
-       <>
-       
-       
-       <div id='page'></div>
+        <>
+            
        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'></link>
         <nav>
-            <img src='./logo.jpeg' onClick={() => goHome()} alt="BigCo Inc. logo" />
+            <img src='./logo.jpeg' />
             <Link to="/" className='toggle-button'>
                 <input type="checkbox" id="click"></input>  
                 <label htmlFor="click" className='menu-btn'>
@@ -28,26 +20,24 @@ const goHome = () => {
                 </label>
             </Link>
 
-            <div className='navlinks'>
+            <div className='admin_navlinks'>
                 <NavLink to="/Profile" className='Li'>Profile</NavLink>
-                <NavLink to="/" className='Li'>Instructions</NavLink>
-                <NavLink to="/" className='Li'>Candidates</NavLink>
-                <NavLink to="/" className='Li'>Vote</NavLink>
+                <NavLink to="/Profile" className='Li'>Candidates</NavLink>
+                <NavLink to="/" className='Li'>Add Candidates</NavLink>
                 <NavLink to="/" className='Li'>Results</NavLink>
-                <NavLink to="/" className='Li'>Contact</NavLink>
                 <NavLink to="/" className='Li'>About</NavLink> 
             </div>
-            <div className='login'>
-                <NavLink to="/SignIn"  className='Li'>Login</NavLink>
+            <div className='logout'>
+                <NavLink to="/SignIn"  className='Li'>Logout</NavLink>
                 <Outlet/>
             </div>
              
         </nav>
        
-        
+       
         </>
-    )
-    
-    
-}
 
+    )
+
+
+}

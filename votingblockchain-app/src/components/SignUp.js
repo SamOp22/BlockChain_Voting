@@ -1,50 +1,76 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import NavB from './NavB'
 import './css_/SignUp.css'
 import { Link } from "react-router-dom"
+import axios from "axios"
 
 function SignUp() {
+
+  const [ user ,setUser] = useState({
+    First_Name: "",
+    Last_Name: "",
+    Aadhar_number: "",
+    Email: "",
+    Password: "",
+    Confirm_Password: ""
+
+  })
+
+  const handleChange = e => {
+    const {name , value } = e.target
+    setUser({
+      ...user,
+      [name]:value
+    })
+  }
+
+  const register = () => {
+    const{First_Name ,  Last_Name , Aadhar_number , Email , Password , Confirm_Password } = user
+    axios.post("http://localhost:3000/Signup" , user)
+  }
+
   return (
     <>
-      <body>
+      
         <div className="navb">
           <NavB />
         </div>
+        {console.log("User",user)}
         <div className="content">
           <div className='side-panel'>
             <img src='./logo2.png' alt="BigCo Inc. logo" />
           </div>
           <div className='signUp-box'>
-            <div class="login-page">
-              <div class="form">
-                <div class="login">
-                  <div class="login-header">
+            <div className="login-page">
+              <div className="form">
+                <div className="login">
+                  <div className="login-header">
                     <h3>REGISTER</h3>
                     <p>Please enter your information.</p>
                   </div>
                 </div>
-                <form class="login-form">
+                <form className="login-form">
                 <label>First Name</label>
-            <input type="text" name="Fname" placeholder="" />
+            <input type="text" name="First_Name" value={user.First_Name}  placeholder="" onChange={handleChange}/>
             <label>Last Name</label>
-            <input type="text" name="Lname" placeholder="" />
+            <input type="text" name="Last_Name" value={user.Last_Name} placeholder=""  onChange={handleChange}/>
             <label>Aadhar number</label>
-            <input type="number" name="AadharNumber" placeholder="" />
+            <input type="number" name="Aadhar_number" value={user.Aadhar_number} placeholder=""  onChange={handleChange}/>
             <label>Email</label>
-            <input type="email" name="email" placeholder="" />
+            <input type="email" name="Email" value={user.Email} placeholder=""  onChange={handleChange}/>
             <label>Password</label>
-            <input type="password" name="password" placeholder="" />
+            <input type="password" name="Password" value={user.Password} placeholder=""  onChange={handleChange}/>
             <label>Confirm Password</label>
-            <input type="password" name="Cpassword" placeholder="" />
-                  <button>Register</button>
-                  <p class="message">Already have an account?<Link to="/SignIn"> Sign in..</Link> </p>
+            <input type="password" name="Confirm_Password" value={user.Confirm_Password} placeholder="" onChange={handleChange} />
+                  <button onClick={register}>Register </button>
+                  <p className="message">Already have an account?<Link to="/SignIn"> Sign in..</Link> </p>
                 </form>
               </div>
             </div>
           </div>
         </div>
 
-      </body>
+      
     </>
   )
 }
