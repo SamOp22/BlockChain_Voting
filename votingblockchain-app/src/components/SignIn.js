@@ -2,8 +2,12 @@ import React , { useState} from 'react'
 import NavB from './NavB'
 import './css_/SignIn.css'
 import {Link} from "react-router-dom"
+import axios from "axios"
+import { useNavigate} from  "react-router-dom"
 
 function SignIn() {
+
+  const navigate = useNavigate()
 
   const [ user ,setUser] = useState({
     Email: "",
@@ -18,6 +22,11 @@ function SignIn() {
       ...user,
       [name]:value
     })
+  }
+
+  const Signin = () =>{
+    axios.post("http://localhost:3000/Signin" , user)
+    .then(res => alert(res.data.message))
   }
 
   return (
@@ -46,9 +55,9 @@ function SignIn() {
                 <label>Password</label>
                 <input type="password" name="Password" value={user.Password} placeholder=""  onChange={handleChange}/>
                 <label>Confirm Password</label>
-                  <button>login</button>
-                  <p className="message">Not registered? <Link to="/SignUp"> Register..</Link> </p>
+                <button onClick={Signin}>login</button>  
                 </form>
+                <p id onClick={()=> navigate("/SignUp")}>Do not have a account... Register Now</p>
               </div>
             </div>
           </div>

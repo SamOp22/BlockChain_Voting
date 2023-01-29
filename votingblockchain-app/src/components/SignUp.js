@@ -3,8 +3,11 @@ import NavB from './NavB'
 import './css_/SignUp.css'
 import { Link } from "react-router-dom"
 import axios from "axios"
+import { useNavigate} from  "react-router-dom"
 
 function SignUp() {
+
+  const navigate = useNavigate()
 
   const [ user ,setUser] = useState({
     First_Name: "",
@@ -26,7 +29,13 @@ function SignUp() {
 
   const register = () => {
     const{First_Name ,  Last_Name , Aadhar_number , Email , Password , Confirm_Password } = user
-    axios.post("http://localhost:3000/Signup" , user)
+    if(First_Name && Last_Name && Aadhar_number && Email && (Password === Confirm_Password)){
+      axios.post("http://localhost:3000/SignUp" , user)
+      .then(res => alert(res.data.message))
+    }else{
+      alert("invalid input")
+    }
+    
   }
 
   return (
@@ -63,8 +72,9 @@ function SignUp() {
             <label>Confirm Password</label>
             <input type="password" name="Confirm_Password" value={user.Confirm_Password} placeholder="" onChange={handleChange} />
                   <button onClick={register}>Register </button>
-                  <p className="message">Already have an account?<Link to="/SignIn"> Sign in..</Link> </p>
+          
                 </form>
+                <p onClick={()=> navigate("/SignIn")}>Alreadt have an account... Sign in</p>
               </div>
             </div>
           </div>
