@@ -32,14 +32,14 @@ const adminSchema = new mongoose.Schema({
 const User = new mongoose.model("User", userSchema)
 const Admin = new mongoose.model("admin", adminSchema )
 
-//Routes 
+// Routes 
 
 app.post("/Signin", (req, res) => {
     const { Email, Password } = req.body
     User.findOne({Email:Email}, (err,user)=> {
         if(user){
             if(Password === user.Password){
-                res.send({message: "login successful", user:user})
+                res.send({message: "login successful", user:user })
             }
             else{
                 res.send({message: "password incorrect"})
@@ -49,6 +49,53 @@ app.post("/Signin", (req, res) => {
         }
     })
 })
+
+// app.post('/Signin', (req, res) => {
+//     const {
+//         Email,
+//         Password
+//     } = req.body;
+
+//     userSchema.findOne({ Email: Email })
+//         .then((savedata) => {
+//             if (!savedata) {
+//                 // return res.send("invaid");
+//                 adminSchema.findOne({ Email: Email })
+//                     .then((savedetail) => {
+//                         if (!savedetail) {
+//                             return res.send("invalid");
+//                         }
+//                         adminSchema.findOne({ Password: Password })
+//                             .then((savepass, user) => {
+//                                 if (!savepass) {
+//                                     return res.send("invalid");
+//                                 }
+//                                 return res.send({message: "login successful", user:user});
+//                             })
+
+//                     })
+//             }
+
+//             else {
+//                 userSchema.findOne({ Password: Password })
+//                     .then((savepass, user) => {
+//                         if (!savepass) {
+//                             return res.send("invalid");
+//                         }
+//                         return res.send({message: "login successful", user:user});
+//                     })
+//             }
+//         })
+//         .catch((error) => {
+//             console.log("error");
+//         })
+
+
+
+
+// })
+
+
 
 app.post("/Signup", (req, res) => {
     const { First_Name, Last_Name, Aadhar_number, Email, Password } = req.body

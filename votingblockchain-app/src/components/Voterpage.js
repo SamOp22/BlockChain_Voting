@@ -1,38 +1,39 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import './css_/Homepage.css';
+import './css_/Voterpage.css';
 import NavB from "./NavB";
+import { NavLink } from "react-router-dom"
 
 
 
-export default function Voterpage() {
+export default function Voterpage(setLoginUser ,setVoter ,user) {
+    
     return (
         <>
 
-                <div className="navb">
-                    <NavB />
-                </div>
-                <div>
-                    <h1>VOTER PAGEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</h1>
-                </div>
-                <div className="main-content">
-                    <div className="head">
-                        <h1>ETHVOTE</h1>
-                        <p>An online system for voting with the security of blockchain</p>
-                    </div>
-
-                </div>
-                <div className="main-box">
-                    <div className="box">
-                        <div className="sub-box">
-                          <img src='./logo2.png' alt="BigCo Inc. logo" />
-                        </div>
-                        <p>A blockchain is a distributed database or ledger that is shared among the nodes of a computer network. As a database, a blockchain stores information electronically in digital format. Blockchains are best known for their crucial role in cryptocurrency systems, such as Bitcoin, for maintaining a secure and decentralized record of transactions.</p>
-                    </div>
-                </div>
+            <div className="navba">
+                <NavB />
+            </div>
+        
+            <div className="sidenav">
+                <div className="sidenav-links">
                 
 
-           
+                    <NavLink to="/Voterpage/Instructions" className='SLi'>Instructions</NavLink>
+                    <NavLink to="/" className='SLi'>Profile</NavLink>
+                    <NavLink to="/" className='SLi'>Candidates</NavLink>
+                    <NavLink to="/" className='SLi'>Vote</NavLink>
+                    <NavLink to="/" className='SLi'>Results</NavLink>
+                    <NavLink to="/" className='SLi'onClick={()=> setVoter({})} >Logout</NavLink>
+
+                </div>
+                <Outlet/>
+
+            </div>
+
+
+
+
         </>
 
     )

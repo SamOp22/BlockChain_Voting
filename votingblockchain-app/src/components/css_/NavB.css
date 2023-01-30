@@ -37,14 +37,14 @@ nav {
 
 .navlinks {
     background-color: white;
-    width: 40vw;
+    width: 20vw;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 }
 
 nav .login{
-    margin-left: 62rem;
+    margin-left: 88rem;
 }
 
 .Li{ 
