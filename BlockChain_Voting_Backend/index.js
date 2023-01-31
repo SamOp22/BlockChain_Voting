@@ -30,7 +30,7 @@ const adminSchema = new mongoose.Schema({
 
 
 const User = new mongoose.model("User", userSchema)
-const Admin = new mongoose.model("admin", adminSchema )
+const Admin = new mongoose.model("Admin", adminSchema )
 
 // Routes 
 
@@ -49,6 +49,23 @@ app.post("/Signin", (req, res) => {
         }
     })
 })
+
+app.post("/Adminlogin", (req, res) => {
+    const { Email, Password } = req.body
+    Admin.findOne({Email:Email}, (err,admin)=> {
+        if(admin){  
+            if(Password === admin.Password){
+                res.send({message: "login successful", admin:admin})
+            }
+            else{
+                res.send({message: "password incorrect"})
+            } 
+        }else{
+            res.send({message:"user not present"})
+        }
+    })
+})
+
 
 // app.post('/Signin', (req, res) => {
 //     const {

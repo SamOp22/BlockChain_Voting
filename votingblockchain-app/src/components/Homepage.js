@@ -1,5 +1,4 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import './css_/Homepage.css';
 import NavB from "./NavB";
 

@@ -15,6 +15,11 @@
     display: none;
    
 }
+
+.navba #adminloginn{
+
+    display: none;
+}
 .navba #voteeeee{
     display:none;
 }

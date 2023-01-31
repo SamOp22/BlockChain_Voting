@@ -10,7 +10,6 @@ export default function NavB() {
     const navigate = useNavigate();
 const goHome = () => {
     navigate('/')
-   
 }
 
     return (
@@ -33,7 +32,7 @@ const goHome = () => {
                 <NavLink to="/" className='Li'>Results</NavLink>
                 <NavLink to="/" className='Li'>Contact</NavLink>
                 <NavLink to="/" className='Li'>About</NavLink> 
-                <NavLink to="/AdminLogin" className="Li">Admin</NavLink>
+                <NavLink to="/AdminLogin" id='adminloginn' className="Li">Admin</NavLink>
             </div>
             <div className='login'>
                 

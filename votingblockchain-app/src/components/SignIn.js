@@ -31,7 +31,6 @@ function SignIn({setVoter}) {
       navigate("/Voterpage")
     })
   }
-
   return (
     <>
     
@@ -57,7 +56,7 @@ function SignIn({setVoter}) {
                 <input type="email" name="Email" value={user.Email} placeholder=""  onChange={handleChange}/>
                 <label>Password</label>
                 <input type="password" name="Password" value={user.Password} placeholder=""  onChange={handleChange}/>
-                <label>Confirm Password</label>
+               
                 <button onClick={Signin}>login</button>  
                 </div>
                 <p id onClick={()=> navigate("/SignUp")}>Do not have a account... Register Now</p>
