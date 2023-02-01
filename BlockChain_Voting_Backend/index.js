@@ -66,52 +66,16 @@ app.post("/Adminlogin", (req, res) => {
     })
 })
 
-
-// app.post('/Signin', (req, res) => {
-//     const {
-//         Email,
-//         Password
-//     } = req.body;
-
-//     userSchema.findOne({ Email: Email })
-//         .then((savedata) => {
-//             if (!savedata) {
-//                 // return res.send("invaid");
-//                 adminSchema.findOne({ Email: Email })
-//                     .then((savedetail) => {
-//                         if (!savedetail) {
-//                             return res.send("invalid");
-//                         }
-//                         adminSchema.findOne({ Password: Password })
-//                             .then((savepass, user) => {
-//                                 if (!savepass) {
-//                                     return res.send("invalid");
-//                                 }
-//                                 return res.send({message: "login successful", user:user});
-//                             })
-
-//                     })
-//             }
-
-//             else {
-//                 userSchema.findOne({ Password: Password })
-//                     .then((savepass, user) => {
-//                         if (!savepass) {
-//                             return res.send("invalid");
-//                         }
-//                         return res.send({message: "login successful", user:user});
-//                     })
-//             }
-//         })
-//         .catch((error) => {
-//             console.log("error");
-//         })
-
-
-
-
-// })
-
+app.get("/Voterpage/Profile" , (req,res) => {
+    User.find((err,data) =>{
+        if(err){
+            res.status(500).send(err);
+        }
+        else{
+            res.status(200).send(data);
+        }
+    })
+})
 
 
 app.post("/Signup", (req, res) => {

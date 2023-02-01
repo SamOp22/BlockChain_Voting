@@ -37,7 +37,7 @@ function SignIn({setVoter}) {
         <div className="navb">
           <NavB />
         </div>
-        {console.log("User",user)}
+        
         <div className="content">
           <div className='side-panel'>
             <img src='./logo2.png' alt="BigCo Inc. logo" />

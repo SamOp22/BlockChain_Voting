@@ -61,6 +61,7 @@
     justify-items: center;
     margin: 1rem 2rem;
     border-radius: 34px;
+    border: none;
     background-color: white;
     padding: 1rem 3rem;
     animation-duration: 2s;
@@ -68,6 +69,10 @@
     animation-fill-mode: forwards;
     visibility: hidden;
     opacity: 0;    
+}
+
+.sidenav-links :hover{
+    box-shadow: 4px 4px 8px rgb(122, 122, 122);
 }
 
 .instructions{

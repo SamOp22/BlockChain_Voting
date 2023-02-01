@@ -12,6 +12,7 @@ import Adminlogin from './components/Adminlogin';
 
 
 
+
 function App() {
 
   const [admin, setLoginAdmin] = useState({})
@@ -41,12 +42,13 @@ useEffect(() => {
         <Route path='/' element={<Homepage />} />
         <Route exact path='/Voterpage' element={user && user._id ? (<Voterpage setVoter={setVoter} />) : (<SignIn setVoter={setVoter} />)}/>
         <Route exact path='/Adminpage' element={admin && admin._id ? (<Adminpage setAdminn={setAdminn} />) : (<Adminlogin setAdminn={setAdminn} />)}/>
-        <Route path='/Profile' element={<Profile />} />
+        <Route path='/Profile' element={<Profile voter= {user._id} />} />
         <Route path='/SignIn' element={<SignIn setVoter={setVoter} />} />
         <Route path='/Adminlogin' element={<Adminlogin setAdminn={setAdminn} />} />
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/admin' element={<Adminpage />} />
         <Route path='/Voterpage/Instructions' element={<Instructions />} />
+        <Route path='/Voterpage/Profile' element={<Profile/>} />
 
 
 
