@@ -1,11 +1,15 @@
 import express from "express";
 import cors from 'cors';
 import mongoose from "mongoose";
+import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+const SECRET_KEY = "NOTESAPI"
 
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
+
 
 mongoose.connect('mongodb://localhost:27017/vote', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection;
@@ -30,80 +34,119 @@ const adminSchema = new mongoose.Schema({
 
 
 const User = new mongoose.model("User", userSchema)
-const Admin = new mongoose.model("Admin", adminSchema )
+const Admin = new mongoose.model("Admin", adminSchema)
 
 // Routes 
 
-app.post("/Signin", (req, res) => {
+app.use(express.json());
+
+app.post("/Signin", async (req, res) => {
     const { Email, Password } = req.body
-    User.findOne({Email:Email}, (err,user)=> {
-        if(user){
-            if(Password === user.Password){
-                res.send({message: "login successful", user:user })
+
+     try{
+        const existuser = await User.findOne({ Email: Email });
+        if (!existuser) {
+           res.send({ message: "User not found "});
+        
+        }
+
+        const matchpass = await bcrypt.compare(Password , existuser.Password);
+
+        if(!matchpass){
+            res.send({message: "invalid credentials"})
+        }
+
+        const token = jwt.sign({ Email: existuser.Email, id: existuser._id }, SECRET_KEY);
+        res.status(201).json({ user: existuser, token: token })
+
+     }catch(error){
+        console.log(error);
+        res.status(500).json({message:"went wrong"})
+
+     }
+
+    // await User.findOne({ Email: Email }, (err, user) => {
+    //     if (user) {
+    //         if (Password === user.Password) {
+    //             res.send({ message: "login successful", user: user })
+    //         }
+    //         else {
+    //             res.send({ message: "password incorrect" })
+    //         }
+    //     } else {
+    //         res.send({ message: "user not present" })
+    //     }
+    // })
+})
+
+app.post("/Adminlogin", async (req, res) => {
+    const { Email, Password } = req.body
+    await Admin.findOne({ Email: Email }, (err, admin) => {
+        if (admin) {
+            if (Password === admin.Password) {
+                res.send({ message: "login successful", admin: admin })
             }
-            else{
-                res.send({message: "password incorrect"})
-            } 
-        }else{
-            res.send({message:"user not present"})
+            else {
+                res.send({ message: "password incorrect" })
+            }
+        } else {
+            res.send({ message: "user not present" })
         }
     })
 })
 
-app.post("/Adminlogin", (req, res) => {
-    const { Email, Password } = req.body
-    Admin.findOne({Email:Email}, (err,admin)=> {
-        if(admin){  
-            if(Password === admin.Password){
-                res.send({message: "login successful", admin:admin})
-            }
-            else{
-                res.send({message: "password incorrect"})
-            } 
-        }else{
-            res.send({message:"user not present"})
-        }
-    })
-})
-
-app.get("/Voterpage/Profile" , (req,res) => {
-    User.find((err,data) =>{
-        if(err){
+app.get("/Voterpage/Profile", (req, res) => {
+    User.find((err, data) => {
+        if (err) {
             res.status(500).send(err);
         }
-        else{
+        else {
             res.status(200).send(data);
         }
     })
 })
 
 
-app.post("/Signup", (req, res) => {
+app.post("/Signup", async (req, res) => {
     const { First_Name, Last_Name, Aadhar_number, Email, Password } = req.body
+    try {
 
-    User.findOne({ Email: Email }, (err, user) => {
-        if (user) {
+        const existuser = await User.findOne({ Email: Email });
+        if (existuser) {
             res.send({ message: "User already registered" })
         }
-        else {
-            const user = new User({
-                First_Name,
-                Last_Name,
-                Aadhar_number,
-                Email,
-                Password
-            })
-            user.save(err => {
-                if (err) {
-                    res.send(err)
-                }
-                else {
-                    res.send({ message: "Successfully SignUp" })
-                }
-            })
-        }
-    })
 
+        const hashPassword = await bcrypt.hash(Password, 10);
+
+
+
+        const user = await new User({
+            First_Name :First_Name,
+            Last_Name:Last_Name,
+            Aadhar_number: Aadhar_number,
+            Email:Email,
+            Password: hashPassword
+        })
+        user.save(err => {
+            if (err) {
+                res.send(err)
+            }
+            else {
+                res.send({ message: "Successfully SignUp" })
+            }
+        })
+
+        const token = jwt.sign({ Email: user.Email, id: user._id }, SECRET_KEY);
+        res.status(201).json({ user: user, token: token })
+
+
+
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message:"went wrong"})
+
+    }
 
 })
 

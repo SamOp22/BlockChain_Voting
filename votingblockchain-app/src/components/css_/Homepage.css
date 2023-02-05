@@ -4,6 +4,13 @@
   box-sizing: border-box;
   word-wrap: break-word;
   font-family: 'Poppins', sans-serif;
+ 
+}
+
+.background img{
+  width: 100%;
+ 
+  
 }
 
 .navb{
@@ -131,12 +138,21 @@
 }
 
 .sub-box img{
-  height: 10rem;
+  height: 12rem;
   animation-duration: 2s;
   animation-name:addAnimation;
   animation-fill-mode: forwards;
   visibility: hidden;
   opacity: 0;
+  mix-blend-mode: screen;
+  filter: contrast( 1.5);
+  border-radius: 6rem;
+  
+}
+
+.rotateimghome{
+   width: 12rem;
+   animation: rotation 6s infinite linear;
 }
 
 @keyframes addAnimation {
@@ -145,7 +161,18 @@
     opacity: 0.1;
   }
   100% {
+    
     visibility: visible;
     opacity: 1;
+    
+  }
+  
+}
+@keyframes rotation {
+  100%{
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

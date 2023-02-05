@@ -47,7 +47,11 @@ function SignUp() {
         {console.log("User",user)}
         <div className="content">
           <div className='side-panel'>
-            <img src='./logo2.png' alt="BigCo Inc. logo" />
+          <div className='logo-margin'>
+            <div className='rotateimg'>
+              <img src='./logo2.png' alt="BigCo Inc. logo" />
+            </div>
+          </div>
           </div>
           <div className='signUp-box'>
             <div className="login-page">

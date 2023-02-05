@@ -41,7 +41,11 @@ function Adminlogin({setAdminn}) {
         {console.log("User",admin)}
         <div className="content">
           <div className='side-panel'>
-            <img src='./logo2.png' alt="BigCo Inc. logo" />
+            <div className='logo-margin'>
+              <div className='rotateimg'>
+                <img src='./logo2.png' alt="BigCo Inc. logo" />
+              </div>
+            </div>
           </div>
           <div className='signin-box'>
             <div className="login-page">

@@ -19,15 +19,7 @@ export default function Profile(props) {
 
     return (
        <>
-            <div>
-                {   
-                    
-                    Vuser && Vuser?.data.map(()=>(
-                        <textarea></textarea>
-                    ))
-                }
-                <h1>affffffffffffffffffffffffffffff</h1>
-            </div>
+             
        </> 
     
     )

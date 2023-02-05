@@ -52,9 +52,8 @@
 
 
 .side-panel img{
-    height: 15rem;
-    margin-top: 24rem;
-    margin-left: 22rem;
+   
+    height: 16rem;
     animation-duration: 2s;
     animation-name:addAnimation;
     animation-fill-mode: forwards;
@@ -185,4 +184,13 @@ margin-top: 0px;
     z-index: 1;
     max-width: 300px;
     margin: 0 auto;
+  }
+
+  .rotateimg{
+    width: 16rem;
+  }
+
+  .logo-margin{
+    margin-left: 20rem;
+    margin-top: 20rem;
   }

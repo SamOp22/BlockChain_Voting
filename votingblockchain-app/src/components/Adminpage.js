@@ -21,7 +21,7 @@ export default function Adminpage(setAdminn) {
                     <NavLink to="/" className='SLi'>Profile</NavLink>
                     <NavLink to="/" className='SLi'>Add Candidates</NavLink>
                     <NavLink to="/" className='SLi'>Results</NavLink>
-                    <NavLink to="/" className='SLi'onClick={()=> setAdminn({})} >Logout</NavLink>
+                    <NavLink to="/" className='SLi' onClick={() => localStorage.clear()} >Logout</NavLink>
 
                 </div>
                 <Outlet/>

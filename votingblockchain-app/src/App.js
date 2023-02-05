@@ -26,11 +26,12 @@ function App() {
     setLoginAdmin(admin)
   }
 
+  
 const [user, setLoginUser] = useState({})
 
-useEffect(() => {
-  setLoginUser(JSON.parse(localStorage.getItem("User")))
-}, [])
+  useEffect(() => {
+    setLoginUser(JSON.parse(localStorage.getItem("User")))
+  }, [])
 
   function setVoter(user) {
     localStorage.setItem("User", JSON.stringify(user));
@@ -40,15 +41,14 @@ useEffect(() => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route exact path='/Voterpage' element={user && user._id ? (<Voterpage setVoter={setVoter} />) : (<SignIn setVoter={setVoter} />)}/>
-        <Route exact path='/Adminpage' element={admin && admin._id ? (<Adminpage setAdminn={setAdminn} />) : (<Adminlogin setAdminn={setAdminn} />)}/>
-        <Route path='/Profile' element={<Profile voter= {user._id} />} />
-        <Route path='/SignIn' element={<SignIn setVoter={setVoter} />} />
+        <Route exact path='/Voterpage' element={user && user._id ?(<Voterpage setVoter={setVoter}  />) : (<SignIn setVoter={setVoter} />)}/>
+        <Route exact path='/Adminpage' element={admin && admin._id ? (<Adminpage setAdminn={setAdminn}  />) : (<Adminlogin setAdminn={setAdminn} />)}/>
+        <Route path='/SignIn' element={<SignIn setVoter={setVoter } />} />
         <Route path='/Adminlogin' element={<Adminlogin setAdminn={setAdminn} />} />
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/admin' element={<Adminpage />} />
-        <Route path='/Voterpage/Instructions' element={<Instructions />} />
-        <Route path='/Voterpage/Profile' element={<Profile/>} />
+        <Route path='/Voterpage/Instructions' element={user && user._id ?(<Instructions />):(<SignIn setVoter={setVoter} />)} />
+        <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile/>):(<SignIn setVoter={setVoter} />)} />
 
 
 
