@@ -9,6 +9,8 @@ import Voterpage from './components/Voterpage';
 import { Instructions } from './components/Instructions';
 import { useEffect, useState } from 'react';
 import Adminlogin from './components/Adminlogin';
+import Footer from './components/Footer';
+import Metamask_mess from './components/Metamask_mess';
 
 
 
@@ -29,15 +31,18 @@ function App() {
   
 const [user, setLoginUser] = useState({})
 
-  useEffect(() => {
-    setLoginUser(JSON.parse(localStorage.getItem("User")))
-  }, [])
+    useEffect(() => {
+      setLoginUser(JSON.parse(localStorage.getItem("User")))
+    }, [])
 
   function setVoter(user) {
     localStorage.setItem("User", JSON.stringify(user));
     setLoginUser(user);
   }
+
+
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Homepage />} />
@@ -48,14 +53,12 @@ const [user, setLoginUser] = useState({})
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/admin' element={<Adminpage />} />
         <Route path='/Voterpage/Instructions' element={user && user._id ?(<Instructions />):(<SignIn setVoter={setVoter} />)} />
-        <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile/>):(<SignIn setVoter={setVoter} />)} />
-
-
-
+        <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile user = {user}/>):(<SignIn setVoter={setVoter} />)} />
 
       </Routes>
     </BrowserRouter>
-
+  <Footer/>
+  </>
   );
 }
 

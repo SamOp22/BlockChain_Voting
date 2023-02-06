@@ -77,10 +77,10 @@
 
 .instructions{
     background-color: rgb(255, 255, 255);
-    margin-left: 26rem;
-    margin-top: 5rem;
+    margin-left: 25rem;
+    margin-top: 2rem;
     height: 40rem;
-    width: 80rem;
+    width: 90rem;
     box-shadow: 2px 2px 5px rgb(122, 122, 122);
     border-radius: 3rem;
 }

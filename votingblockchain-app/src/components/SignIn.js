@@ -26,13 +26,16 @@ function SignIn({ setVoter }) {
   const Signin = () => {
     axios.post("http://localhost:3000/Signin", user)
       .then(res => {
+        alert(res.data.message)
         setVoter(res.data.user)
         navigate("/Voterpage")
       })
   }
+
+  window.onscroll = function () { window.scrollTo(0, 0); };
   return (
     <>
-
+      
       <div className="navb">
         <NavB />
       </div>

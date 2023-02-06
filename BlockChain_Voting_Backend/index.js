@@ -56,12 +56,14 @@ app.post("/Signin", async (req, res) => {
             res.send({message: "invalid credentials"})
         }
 
+
         const token = jwt.sign({ Email: existuser.Email, id: existuser._id }, SECRET_KEY);
         res.status(201).json({ user: existuser, token: token })
-
+        
+        
      }catch(error){
         console.log(error);
-        res.status(500).json({message:"went wrong"})
+        res.send({message:"went wrong"})
 
      }
 

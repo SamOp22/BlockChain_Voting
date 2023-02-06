@@ -38,6 +38,8 @@ function SignUp() {
     
   }
 
+  window.onscroll = function () { window.scrollTo(0, 0); };
+
   return (
     <>
       

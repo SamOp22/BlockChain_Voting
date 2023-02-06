@@ -5,6 +5,8 @@ import Web3 from 'web3';
 import NavB from "./NavB";
 import { NavLink } from "react-router-dom"
 import { useState, useEffect } from 'react'
+import Metamask_mess from "./Metamask_mess";
+import { Instructions } from "./Instructions";
 
 
 
@@ -27,11 +29,13 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
   // useEffect(() => {
   //     checkAccount()
   // }, [])
+
+  
   
   async function activate() {
     if (window.ethereum) {
       try {
-        await window.ethereum.request({ method: 'eth_requestAccounts' });
+        await window.ethereum.request({ method: 'eth_requestAccounts' });  
         checkAccount()
         
       } catch (err) {
@@ -52,7 +56,9 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
     const connected = document.getElementById("metamask-message").innerHTML = "Metamask Account connected" + " " + accounts[0]
   }
 
-
+  window.onload = function() {
+    activate();
+  };
   return (
     <>
 
@@ -75,10 +81,8 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
       </div>
 
       <div className="main-page">
-        <div className="metamask">
-          <h1 id="metamask-message"></h1>
+          
 
-        </div>
       </div>
       <Outlet />
 

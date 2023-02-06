@@ -4,7 +4,8 @@
     box-sizing: border-box;
     word-wrap: break-word;
     font-family: 'Poppins', sans-serif;
-    
+   
+      
   }
 
 
@@ -17,13 +18,14 @@
 }
 
 .content{
+ 
     display: flex;
+    
     
 
 }
 
 .side-panel{
-
     background-image: linear-gradient(to right, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
     height: 100rem;
     width: 45rem;
