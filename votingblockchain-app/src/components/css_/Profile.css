@@ -7,31 +7,15 @@
 
 .profile-main{
     background-color: rgb(255, 255, 255);
-    
+    width: 90rem;
     height: 40rem;
     margin-left: 25rem;
     margin-top: 2rem;
     border-radius: 2rem;
     box-shadow: 2px 2px 8px rgb(205, 205, 205);
-    animation-iteration-count: 1;
-    animation-fill-mode:inherit;
-    animation-duration: 2s;
-    animation-name: box;
-
+ 
 }
-@keyframes box{
-    0%{
-        width: 20rem;
-    }
-    50% {
-      width: 20rem;
-      
-    }
-    100% {
-        width: 90rem;
-    }
-    
-  }
+
 
 
 .profile-main h1{
@@ -59,6 +43,7 @@
     text-decoration: none;
     list-style-type: none;
     font-size: 1.5rem;
+    
 }
 
 

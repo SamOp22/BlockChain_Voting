@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-family: 'Poppins', sans-serif;
+    
+  }
+.navba{
+    position: sticky;
+    top: 0;
+    z-index: 44;
+  }
+.navba .login {
+    display: none;
+   
+}
+
+.navba #adminloginn{
+
+    display: none;
+}
+.navba #voteeeee{
+    display:none;
+}
+.sidenav {
+    background-color:#c176ce;
+    box-shadow: 2px 2px 8px rgb(122, 122, 122);
+    background-image: linear-gradient(to left, rgba(197, 0, 204, 0.281), rgb(123, 19, 151));
+    height: 60rem;
+    width: 20rem;
+    position: absolute;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out forwards;
+    animation-duration: 1.5s;
+    animation-name: slidenav;
+    
+}
+
+@keyframes slidenav {
+    0% {
+      width: 0rem;;
+    }
+    100% {  
+       width: 20rem;
+    }
+  
+}
+.sidenav-links{
+    margin-top: 2rem;
+}
+.sidenav-links .SLi{
+    display: block;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: rgb(88, 0, 79);
+    justify-items: center;
+    margin: 1rem 2rem;
+    border-radius: 34px;
+    border: none;
+    background-color: white;
+    padding: 1rem 3rem;
+    animation-duration: 2s;
+    animation-name:addAnimation;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity: 0;    
+}
+
+.sidenav-links :hover{
+    box-shadow: 4px 4px 8px rgb(122, 122, 122);
+}
+
+.instructions{
+    background-color: rgb(255, 255, 255);
+    margin-left: 25rem;
+    margin-top: 2rem;
+    height: 40rem;
+    width: 90rem;
+    box-shadow: 2px 2px 5px rgb(122, 122, 122);
+    border-radius: 3rem;
+}
+
+.instructions ul li{
+    text-decoration: none;
+    padding-top: 3rem;
+    list-style-type: none;
+}
+

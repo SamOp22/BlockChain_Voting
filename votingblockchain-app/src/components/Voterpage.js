@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import Metamask_mess from "./Metamask_mess";
 import { Instructions } from "./Instructions";
+import Candidates from "./Candidates";
 
 
 
@@ -58,21 +59,176 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
 
   window.onload = function() {
     activate();
+    readcandidate();
   };
+
+  const connectContract = async ()=>{
+    const ABI = [
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_description",
+            "type": "string"
+          }
+        ],
+        "name": "addContestant",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "enum Contest.PHASE",
+            "name": "x",
+            "type": "uint8"
+          }
+        ],
+        "name": "changeState",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_contestantId",
+            "type": "uint256"
+          }
+        ],
+        "name": "vote",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "name": "contestants",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "voteCount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "contestantsCount",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "state",
+        "outputs": [
+          {
+            "internalType": "enum Contest.PHASE",
+            "name": "",
+            "type": "uint8"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "name": "voters",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "hasVoted",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "vote",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ];
+    const Address = "0x37c3DC6AB779782457d3225D3B316127F266B789";
+    window.web3 = await new Web3(window.ethereum);
+    window.contract =  await await new window.web3.eth.Contract(ABI,Address);
+    document.getElementById("metamask-contract").innerHTML = "contract connected"
+
+    
+  }
+
+  const readcandidate = async() => {
+    const data = await window.contract.methods.contestants("1").call();
+    
+  document.getElementById("candidate").innerHTML = "candidate" + " " + data[1]
+  }
+
   return (
     <>
 
       <div className="navba">
         <NavB />
-      </div>
 
+      </div>
+      
       <div className="sidenav">
         <div className="sidenav-links">
 
           <button onClick={() => activate()} className='SLi'>Connect Wallet</button>
+          <button onClick={() => connectContract()} className='SLi'>Connect Contract</button>
+          <button onClick={() => readcandidate()} className='SLi'>Connect Contract</button>
           <NavLink to="/Voterpage/Instructions" className='SLi'>Instructions</NavLink>
           <NavLink to="/Voterpage/Profile" className='SLi'>Profile</NavLink>
-          <NavLink to="/" className='SLi'>Candidates</NavLink>
+          <NavLink to="/Voterpage/Candidates" className='SLi'>Candidates</NavLink>
           <NavLink to="/" className='SLi'>Vote</NavLink>
           <NavLink to="/" className='SLi'>Results</NavLink>
           <NavLink to="/" className='SLi' onClick={() => localStorage.clear()} >Logout</NavLink>
