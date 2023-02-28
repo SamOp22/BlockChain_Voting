@@ -39,10 +39,12 @@
     animation-duration: 2s;
     animation-name: slidetext;
     animation-delay: 1s;
-    margin-left: -30rem;
+    margin-left: 1rem;
     text-decoration: none;
     list-style-type: none;
     font-size: 1.5rem;
+    visibility: hidden;
+  opacity: 0;
     
 }
 
@@ -65,15 +67,15 @@
 .profile-main .left-info span:nth-child(8){ animation-delay: 5s;}
 
 @keyframes span-ani{
-    50% {
-      visibility: hidden;
-      opacity: 0.1;
-      
-    }
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
+  50% {
+    visibility: hidden;
+    opacity: 0.1;
+    
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
     
   }
 
@@ -84,12 +86,15 @@
 .profile-main .left-info label:nth-child(5){ animation-delay: 3s;}
 .profile-main .left-info label:nth-child(7){ animation-delay: 4s;}
 
-@keyframes slidetext {
+  @keyframes slidetext {
     50% {
-      margin-left: -20rem;
-    }
-    100% {  
-       margin-left: 1rem;
-    }
-  
-}
+        visibility: hidden;
+        opacity: 0.1;
+        
+      }
+      100% {
+        visibility: visible;
+        opacity: 1;
+      }
+    
+  }

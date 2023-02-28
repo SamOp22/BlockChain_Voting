@@ -12,7 +12,7 @@ import Adminlogin from './components/Adminlogin';
 import Footer from './components/Footer';
 import Metamask_mess from './components/Metamask_mess';
 import Candidates from './components/Candidates';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 

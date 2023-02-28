@@ -1,0 +1,36 @@
+
+#abc{
+    margin-left: 40rem;
+}
+
+.container{
+    margin-left: 24rem;
+}
+
+.allCards{
+    
+    height: 200rem;
+    width: 90rem;
+    margin-left: 25rem;
+    position: absolute;
+}
+
+.Cards{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Card{
+    
+    margin-left: 3rem;
+    align-items: center;
+    border: 2px;
+    box-shadow: 1px 1px 8px rgb(122, 122, 122);
+}
+
+#CardImage{
+    margin-top: 1.5rem;
+    width: 11rem;
+    
+}

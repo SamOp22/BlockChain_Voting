@@ -31,7 +31,7 @@ function SignUp() {
     const{First_Name ,  Last_Name , Aadhar_number , Email , Password , Confirm_Password } = user
     if(First_Name && Last_Name && Aadhar_number && Email && (Password === Confirm_Password)){
       axios.post("http://localhost:3000/SignUp" , user)
-      .then(res => alert(res.data.message))
+      .then(res => console.log(res.data.message))
     }else{
       alert("invalid input")
     }

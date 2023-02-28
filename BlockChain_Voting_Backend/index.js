@@ -131,23 +131,25 @@ app.post("/Signup", async (req, res) => {
         })
         user.save(err => {
             if (err) {
-                res.send(err)
+                res.status(err)
+                return;
             }
             else {
-                res.send({ message: "Successfully SignUp" })
+                res.status({ message: "Successfully SignUp" })
+                return;
             }
         })
 
         const token = jwt.sign({ Email: user.Email, id: user._id }, SECRET_KEY);
         res.status(201).json({ user: user, token: token })
-
+        return;
 
 
 
     } catch (error) {
         console.log(error);
         res.status(500).json({message:"went wrong"})
-
+        return;
     }
 
 })
