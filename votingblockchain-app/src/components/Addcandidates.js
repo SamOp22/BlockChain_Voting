@@ -5,32 +5,36 @@ import "./css_/AddCandidate.css"
 
 
 export const Addcandidates = () => {
-    
+
     const Addcandidate = async () => {
         const c_name = document.getElementById("C_name").value;
         const c_desc = document.getElementById("C_Description").value;
         const account = JSON.parse(localStorage.getItem("Account"))
         console.log(account)
-        await window.contract.methods.addContestant(c_name , c_desc ).send({ from: account})
+        await window.contract.methods.addContestant(c_name, c_desc).send({ from: account })
     }
-    
+
     return (
         <>
             <div>
-            
+
                 <Adminpage />
                 <Metamask_mess />
-                
+
             </div>
 
             <div className='AddCandidate'>
-              
+                <div className="C_details">
                     <label>Name</label>
-                    <input type="text" name="Name" id='C_name' placeholder=""  />
+                    <input type="text" name="Name" id='C_name' placeholder="" />
                     <label>Description</label>
-                    <input type="text" name="Description" id='C_Description' placeholder=""  />
-                    <button onClick={() => Addcandidate()}></button>
-               
+                    <input type="text" name="Description" id='C_Description' placeholder="" />
+                </div>
+                <button onClick={() => Addcandidate()} class="button-42" role="button">Add Candidate</button>
+
+
+
+
             </div>
         </>
     )
