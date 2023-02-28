@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Metamask_mess from './components/Metamask_mess';
 import Candidates from './components/Candidates';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Addcandidates } from './components/Addcandidates';
 
 
 
@@ -56,6 +57,7 @@ const [user, setLoginUser] = useState({})
         <Route path='/Voterpage/Instructions' element={user && user._id ?(<Instructions />):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile user = {user}/>):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Voterpage/Candidates' element={user && user._id ?(<Candidates />):(<SignIn setVoter={setVoter} />)} />
+        <Route path='/Adminpage/Addcandidates' element={admin && admin._id ?(<Addcandidates />):(<Adminlogin setAdminn={setAdminn} />)} />
       </Routes>
     </BrowserRouter>
   <Footer/>

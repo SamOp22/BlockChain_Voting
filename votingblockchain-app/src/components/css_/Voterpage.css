@@ -90,5 +90,10 @@
     text-decoration: none;
     padding-top: 3rem;
     list-style-type: none;
+    animation-duration: 4s;
+     animation-name:boxAnimation;
+     animation-fill-mode: forwards;
+     visibility: hidden;
+      opacity: 0;
 }
 

@@ -57,11 +57,16 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
     const connected = document.getElementById("metamask-message").innerHTML = "Metamask Account connected" + " " + accounts[0]
   }
 
-  window.onload = function() {
-    activate();
+  // window.onload = function() {
+  //   activate();
+  //   connectContract();
+    
+  // };
+  useEffect(() => {
+    // activate();
     connectContract();
     
-  };
+  }, []);
 
   
 
@@ -201,10 +206,10 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
         "type": "function"
       }
     ];
-    const Address = "0x6c9B00C28DFf22bbEc79b40d7717265C5930337a";
+    const Address = "0x0176ef28Cdb5743b09DDB5D8d16cAA93544AC4bF";
     window.web3 = await new Web3(window.ethereum);
     window.contract =  await await new window.web3.eth.Contract(ABI,Address);
-    document.getElementById("metamask-contract").innerHTML = "contract connected"
+   
   
   }
 

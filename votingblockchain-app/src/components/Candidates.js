@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Voterpage from "./Voterpage";
 import Metamask_mess from "./Metamask_mess";
 import "./css_/Candidate.css"
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Row, Col, Container } from "react-bootstrap";
 
@@ -48,9 +47,13 @@ export default function Candidates(props) {
         
       };
  
-    useEffect((onload)=>{
-        readcandidate();
-    })  
+    // useEffect((onload)=>{
+    //     
+    // })  
+    useEffect((onload) => {
+        // readcandidate();
+        
+      },[]);
 
     return (
 
@@ -59,12 +62,9 @@ export default function Candidates(props) {
                 <Voterpage />
                 <Metamask_mess />
             </div>
-            <div className="candidates">
-                <h1 id="candidate">cadidate</h1>
-
-            </div>
+         
             <div className="allCards">
-            {/* <button onClick={() => readcandidate()} id='abc' className='SLi'>Connect Contract</button> */}
+            <button onClick={() => readcandidate()} id='abc' className='SLi'>View Candidates</button>
             <div className="Cards">
                 {cand.map(renderCard)}
             </div>

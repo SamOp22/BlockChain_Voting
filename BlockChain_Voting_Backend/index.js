@@ -43,29 +43,29 @@ app.use(express.json());
 app.post("/Signin", async (req, res) => {
     const { Email, Password } = req.body
 
-     try{
+    try {
         const existuser = await User.findOne({ Email: Email });
         if (!existuser) {
-           res.send({ message: "User not found "});
-        
+            res.send({ message: "User not found " });
+
         }
 
-        const matchpass = await bcrypt.compare(Password , existuser.Password);
+        const matchpass = await bcrypt.compare(Password, existuser.Password);
 
-        if(!matchpass){
-            res.send({message: "invalid credentials"})
+        if (!matchpass) {
+            res.send({ message: "invalid credentials" })
         }
 
 
         const token = jwt.sign({ Email: existuser.Email, id: existuser._id }, SECRET_KEY);
         res.status(201).json({ user: existuser, token: token })
-        
-        
-     }catch(error){
-        console.log(error);
-        res.send({message:"went wrong"})
 
-     }
+
+    } catch (error) {
+        console.log(error);
+        res.send({ message: "went wrong" })
+
+    }
 
     // await User.findOne({ Email: Email }, (err, user) => {
     //     if (user) {
@@ -82,20 +82,63 @@ app.post("/Signin", async (req, res) => {
 })
 
 app.post("/Adminlogin", async (req, res) => {
-    const { Email, Password } = req.body
-    await Admin.findOne({ Email: Email }, (err, admin) => {
-        if (admin) {
-            if (Password === admin.Password) {
-                res.send({ message: "login successful", admin: admin })
-            }
-            else {
-                res.send({ message: "password incorrect" })
-            }
-        } else {
-            res.send({ message: "user not present" })
+    const { Email, Password } = req.body;
+    // await Admin.findOne({ Email: Email }, (err, admin) => {
+    //     if (admin) {
+    //         if (Password === admin.Password) {
+    //             res.send({ message: "login successful", admin: admin })
+    //         }
+    //         else {
+    //             res.send({ message: "password incorrect" })
+    //         }
+    //     } else {
+    //         res.send({ message: "user not present" })
+    //     }
+    // })
+
+    try {
+        const existadmin = await Admin.findOne({ Email: Email });
+        if (!existadmin) {
+            res.send({ message: "User not found " });
         }
-    })
+        if (!(Password === existadmin.Password)) {
+            res.send({ message: "invalid credentials" })
+        }
+        res.status(201).json({ admin: existadmin })
+    }catch(error){
+                console.log(error);
+                res.send({message:"went wrong"})
+        
+             }
 })
+
+// app.post("/Signin", async (req, res) => {
+//     const { Email, Password } = req.body
+
+//      try{
+//         const existuser = await User.findOne({ Email: Email });
+//         if (!existuser) {
+//            res.send({ message: "User not found "});
+
+//         }
+
+//         const matchpass = await bcrypt.compare(Password , existuser.Password);
+
+//         if(!matchpass){
+//             res.send({message: "invalid credentials"})
+//         }
+
+
+//         const token = jwt.sign({ Email: existuser.Email, id: existuser._id }, SECRET_KEY);
+//         res.status(201).json({ user: existuser, token: token })
+
+
+//      }catch(error){
+//         console.log(error);
+//         res.send({message:"went wrong"})
+
+//      }
+
 
 app.get("/Voterpage/Profile", (req, res) => {
     User.find((err, data) => {
@@ -123,10 +166,10 @@ app.post("/Signup", async (req, res) => {
 
 
         const user = await new User({
-            First_Name :First_Name,
-            Last_Name:Last_Name,
+            First_Name: First_Name,
+            Last_Name: Last_Name,
             Aadhar_number: Aadhar_number,
-            Email:Email,
+            Email: Email,
             Password: hashPassword
         })
         user.save(err => {
@@ -148,7 +191,7 @@ app.post("/Signup", async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({message:"went wrong"})
+        res.status(500).json({ message: "went wrong" })
         return;
     }
 

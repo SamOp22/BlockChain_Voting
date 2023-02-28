@@ -1,36 +1,87 @@
-
-#abc{
+#abc {
     margin-left: 40rem;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #f476ff 0, #9300a6 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
-.container{
+#abc:focus {
+  box-shadow: #f476ff 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #e26eff 0 -3px 0 inset;
+}
+
+#abc:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #6f0068 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+#abc:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+.container {
     margin-left: 24rem;
+    
 }
 
-.allCards{
+.allCards {
     
     height: 200rem;
     width: 90rem;
     margin-left: 25rem;
     position: absolute;
+   
 }
 
-.Cards{
+.Cards {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
-.Card{
-    
+.Card {
+
     margin-left: 3rem;
     align-items: center;
     border: 2px;
     box-shadow: 1px 1px 8px rgb(122, 122, 122);
+    animation-duration: 3s;
+    animation-name: boxAnimation;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+    opacity: 0;
 }
 
-#CardImage{
+#CardImage {
     margin-top: 1.5rem;
     width: 11rem;
-    
+
 }
+
