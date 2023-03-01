@@ -4,7 +4,7 @@ import Voterpage from "./Voterpage";
 import Metamask_mess from "./Metamask_mess";
 import "./css_/Candidate.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Card,Button , Row, Col, Container } from "react-bootstrap";
 
 export default function Candidates(props) {
     
@@ -14,7 +14,7 @@ export default function Candidates(props) {
     let data2 = [];
     const renderCard = (card, index) => {
         return (
-            <Card className="Card" style={{ width: '14.3rem',  height: '18rem' }} key ={index}>
+            <Card className="Card" style={{ width: '14.3rem',  height: '19rem' }} key ={index}>
                 <Card.Img  id='CardImage' variant="top" src="../profile.png"/>
                 <Card.Body>
                     <Card.Title>{card.name}</Card.Title>
@@ -23,6 +23,7 @@ export default function Candidates(props) {
                     </Card.Text>
 
                 </Card.Body>
+                {/* <Button id="CardButton" variant="primary">VOTE</Button> */}
             </Card>
         )
     }

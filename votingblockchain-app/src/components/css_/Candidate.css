@@ -91,7 +91,14 @@
 
 #CardImage {
     margin-top: 1.5rem;
-    width: 11rem;
+    width: 8rem;
+
+}
+
+#CardButton{
+  margin-bottom: 1rem;
+  background-color: #e26eff;
+  border-color: #ac01a17e;
 
 }
 

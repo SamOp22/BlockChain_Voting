@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+  box-sizing: border-box;
+  word-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+ 
+}
+
+#ThanksM{
+    margin-left: 40rem;
+    background-color: rgb(249, 249, 249);
+    height: 10rem;
+    width: 60rem;
+    text-align: center;
+    margin-top: 2rem;
+    border-radius: 3rem;
+    box-shadow: 2px 2px 9px rgb(188, 188, 188);
+    font-size: 2rem;
+    padding-top: 1.5rem;
+}
+
+
+

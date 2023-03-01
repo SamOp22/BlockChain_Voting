@@ -40,7 +40,7 @@ export default function Adminpage(setAdminn) {
   }
 
   useEffect(() => {
-    // activate();
+    activate();
     connectContract();
     
   }, []);
@@ -181,7 +181,7 @@ export default function Adminpage(setAdminn) {
         "type": "function"
       }
     ];
-    const Address = "0x4AD251FA06e90814A5B91038F41F4DdAc7E6b912";
+    const Address = "0x635766497113Dd62a29E71AA1856B413417E275C";
     window.web3 = await new Web3(window.ethereum);
     window.contract =  await await new window.web3.eth.Contract(ABI,Address);
     // document.getElementById("metamask-contract").innerHTML = "Metamask Contract connected"

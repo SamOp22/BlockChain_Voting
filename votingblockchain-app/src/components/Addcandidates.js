@@ -24,8 +24,14 @@ export const Addcandidates = () => {
 
     if (curr_state != 0) {
 
-        const phaseee = document.getElementById("addCE").innerHTML = "THE CURRENT PHASE IS NOT REGISTRATION"
-    
+        const dasta =  document.getElementsByClassName("C_details")[0];
+            dasta.style.display = "none"
+            const but =  document.getElementsByClassName("button-42")[0];
+            but.style.display = "none"    
+            const phaseee = document.getElementById("addCE").innerHTML = "THE REGISTRATION PHASE IS OVER"
+        
+
+        // document.getElementsByClassName("C_details").style.display = "none";
         console.log("done")
     }
 

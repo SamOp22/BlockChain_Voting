@@ -63,7 +63,7 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
     
   // };
   useEffect(() => {
-    // activate();
+    activate();
     connectContract();
     
   }, []);
@@ -206,7 +206,7 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
         "type": "function"
       }
     ];
-    const Address = "0x4AD251FA06e90814A5B91038F41F4DdAc7E6b912";
+    const Address = "0x635766497113Dd62a29E71AA1856B413417E275C";
     window.web3 = await new Web3(window.ethereum);
     window.contract =  await await new window.web3.eth.Contract(ABI,Address);
    
@@ -232,7 +232,7 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
           <NavLink to="/Voterpage/Instructions" className='SLi'>Instructions</NavLink>
           <NavLink to="/Voterpage/Profile" className='SLi'>Profile</NavLink>
           <NavLink to="/Voterpage/Candidates" className='SLi'>Candidates</NavLink>
-          <NavLink to="/" className='SLi'>Vote</NavLink>
+          <NavLink to="/Voterpage/Votingpage" className='SLi'>Vote</NavLink>
           <NavLink to="/" className='SLi'>Results</NavLink>
           <NavLink to="/" className='SLi' onClick={() => localStorage.clear()} >Logout</NavLink>
 
