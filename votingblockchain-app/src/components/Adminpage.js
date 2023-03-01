@@ -181,7 +181,7 @@ export default function Adminpage(setAdminn) {
         "type": "function"
       }
     ];
-    const Address = "0x635766497113Dd62a29E71AA1856B413417E275C";
+    const Address = "0x19c52156c6fdB55f77a2F8Efe724b32D87848Bab";
     window.web3 = await new Web3(window.ethereum);
     window.contract =  await await new window.web3.eth.Contract(ABI,Address);
     // document.getElementById("metamask-contract").innerHTML = "Metamask Contract connected"
@@ -202,7 +202,7 @@ export default function Adminpage(setAdminn) {
                    {/* <button onClick={() => connectContract()} className='SLi'>Connect Contract</button> */}
                     <NavLink to="/Adminpage/Addcandidates" className='SLi'>Add Candidates</NavLink>
                     <NavLink to="/Adminpage/Changephase" className='SLi'>Change Phase</NavLink>
-                    <NavLink to="/" className='SLi'>Results</NavLink>
+                    <NavLink to="/Adminpage/Adminresult" className='SLi'>Results</NavLink>
                     <NavLink to="/" className='SLi' onClick={() => localStorage.clear()} >Logout</NavLink>
 
                 </div>

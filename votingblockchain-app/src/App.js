@@ -16,8 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Addcandidates } from './components/Addcandidates';
 import { Changephase } from './components/Changephase';
 import { Votingpage } from './components/Votingpage';
-
-
+import { Results } from './components/Results';
+import { Adminresult } from './components/Adminresult';
 
 function App() {
 
@@ -60,8 +60,10 @@ const [user, setLoginUser] = useState({})
         <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile user = {user}/>):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Voterpage/Candidates' element={user && user._id ?(<Candidates />):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Voterpage/Votingpage' element={user && user._id ?(<Votingpage />):(<SignIn setVoter={setVoter} />)} />
+        <Route path='/Voterpage/Results' element={user && user._id ?(<Results />):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Adminpage/Addcandidates' element={admin && admin._id ?(<Addcandidates />):(<Adminlogin setAdminn={setAdminn} />)} />
         <Route path='/Adminpage/Changephase' element={admin && admin._id ?(<Changephase />):(<Adminlogin setAdminn={setAdminn} />)} />
+        <Route path='/Adminpage/Adminresult' element={admin && admin._id ?(<Adminresult/>):(<Adminlogin setAdminn={setAdminn} />)} />
         
       </Routes>
     </BrowserRouter>
