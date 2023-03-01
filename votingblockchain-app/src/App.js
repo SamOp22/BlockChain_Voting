@@ -14,6 +14,7 @@ import Metamask_mess from './components/Metamask_mess';
 import Candidates from './components/Candidates';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Addcandidates } from './components/Addcandidates';
+import { Changephase } from './components/Changephase';
 
 
 
@@ -58,6 +59,7 @@ const [user, setLoginUser] = useState({})
         <Route path='/Voterpage/Profile' element={user && user._id ?(<Profile user = {user}/>):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Voterpage/Candidates' element={user && user._id ?(<Candidates />):(<SignIn setVoter={setVoter} />)} />
         <Route path='/Adminpage/Addcandidates' element={admin && admin._id ?(<Addcandidates />):(<Adminlogin setAdminn={setAdminn} />)} />
+        <Route path='/Adminpage/Changephase' element={admin && admin._id ?(<Changephase />):(<Adminlogin setAdminn={setAdminn} />)} />
       </Routes>
     </BrowserRouter>
   <Footer/>

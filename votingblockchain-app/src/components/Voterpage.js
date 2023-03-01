@@ -206,7 +206,7 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
         "type": "function"
       }
     ];
-    const Address = "0x0176ef28Cdb5743b09DDB5D8d16cAA93544AC4bF";
+    const Address = "0x4AD251FA06e90814A5B91038F41F4DdAc7E6b912";
     window.web3 = await new Web3(window.ethereum);
     window.contract =  await await new window.web3.eth.Contract(ABI,Address);
    

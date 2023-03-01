@@ -1,0 +1,12 @@
+.message{
+    margin-left: 30rem;
+}
+
+#phase{
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+.candidates{
+    display: none;
+}
