@@ -57,8 +57,9 @@ export const Changephase = () => {
             </div>
             <div className="message">
                 <button class="button-42" onClick={()=>{ displaystate();}}>Current Phase</button>
-                <p id='phase'></p>
                 <button class="button-42" onClick={()=>{ changes();}}>Change Phase</button>
+                <p id='phase'></p>
+                
             </div>
            
 
