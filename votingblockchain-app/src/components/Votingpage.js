@@ -59,6 +59,10 @@ export const Votingpage = () => {
             // document.getElementsByClassName("C_details").style.display = "none";
             console.log("done")
         }
+        else{
+            const noR=  document.getElementById("NoVote");
+            noR.style.display = "none"
+        }
 
     }
 

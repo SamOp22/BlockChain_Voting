@@ -58,6 +58,10 @@ export const Results = () => {
             // document.getElementsByClassName("C_details").style.display = "none";
             console.log("done")
         }
+        else{
+            const noR = document.getElementById("Noresult");
+            noR.style.display = "none"
+        }
 
     }
 
