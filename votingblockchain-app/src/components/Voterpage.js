@@ -8,10 +8,8 @@ import { useState, useEffect } from 'react'
 import Metamask_mess from "./Metamask_mess";
 import { Instructions } from "./Instructions";
 import Candidates from "./Candidates";
-import configuration from '../abi/Contest.json'
-
-
-
+import configuration from '../abi/Voting.json'
+import { Contract } from "ethers";
 
 const Voterpage = (setLoginUser, setVoter, user ) => {
   // let web3
@@ -76,6 +74,7 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
     const ABI = configuration.abi;
     window.web3 = await new Web3(window.ethereum);
     window.contract = await await new window.web3.eth.Contract(ABI,ADDRESS);
+
    
   }
 

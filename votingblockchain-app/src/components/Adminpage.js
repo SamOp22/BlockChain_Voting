@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import "./css_/Adminpage.css"
 import Metamask_mess from "./Metamask_mess";
-import configuration from '../abi/Contest.json'
+import configuration from '../abi/Voting.json'
 
 export default function Adminpage(setAdminn) {
 
@@ -58,7 +58,7 @@ export default function Adminpage(setAdminn) {
     window.web3 = await new Web3(window.ethereum);
     window.contract = await await new window.web3.eth.Contract(ABI,ADDRESS);
     // document.getElementById("metamask-contract").innerHTML = "Metamask Contract connected"
-  
+    console.log(ADDRESS)
   }
 
     return (
