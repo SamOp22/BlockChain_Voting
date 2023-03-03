@@ -51,11 +51,19 @@ export const Votingpage = () => {
         setstate(curr_state)
         console.log(curr_state);
         // displaystate();
-        if (curr_state != 1) {
+        if (curr_state == 0) {
 
             const dasta = document.getElementsByClassName("allCards")[0];
             dasta.style.display = "none"
             const noR = document.getElementById("NoVote").innerHTML = "VOTING HAS NOT BEGUN YET"
+            // document.getElementsByClassName("C_details").style.display = "none";
+            console.log("done")
+        }
+        if (curr_state == 2) {
+
+            const dasta = document.getElementsByClassName("allCards")[0];
+            dasta.style.display = "none"
+            const noR = document.getElementById("NoVote").innerHTML = "VOTING HAS BEEN COMPLETED"
             // document.getElementsByClassName("C_details").style.display = "none";
             console.log("done")
         }

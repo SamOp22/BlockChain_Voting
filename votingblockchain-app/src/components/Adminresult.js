@@ -40,7 +40,6 @@ export const Adminresult = () => {
             data = await window.contract.methods.contestants(i).call();
             results.push(data);
         }
-
         setcand(results)
 
     }
@@ -58,6 +57,10 @@ export const Adminresult = () => {
             const noR = document.getElementById("Noresult").innerHTML = "RESULTS ARE NOT OUT YET"
             // document.getElementsByClassName("C_details").style.display = "none";
             console.log("done")
+        }
+        else{
+            const noR = document.getElementById("Noresult");
+            noR.style.display = "none"
         }
 
     }

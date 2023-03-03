@@ -22,13 +22,20 @@ function SignIn({ setVoter }) {
       [name]: value
     })
   }
+  
+   
 
   const Signin = () => {
     axios.post("http://localhost:3000/Signin", user)
       .then(res => {
-        alert(res.data.message)
+        // alert(res.data.message)
+        if(res.data.message){
+          document.getElementById("errormess").style.display = "block";  
+          document.getElementById("errormess").innerHTML = res.data.message
+        }
+
         setVoter(res.data.user)
-        navigate("/Voterpage")
+        navigate("/Voterpage/Instructions")
       })
   }
 
@@ -65,6 +72,7 @@ function SignIn({ setVoter }) {
 
                 <button onClick={Signin}>login</button>
               </div>
+              <div id='errormess'></div>
               <p id onClick={() => navigate("/SignUp")}>Do not have a account... Register Now</p>
             </div>
           </div>

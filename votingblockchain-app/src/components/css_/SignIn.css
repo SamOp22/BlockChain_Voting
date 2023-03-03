@@ -191,3 +191,13 @@ margin-top: 4px;
   margin-left: 20rem;
   margin-top: 20rem;
 }
+
+#errormess{
+  color: red;
+  padding-top: 0.2rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  height: 2rem;
+  background-color: #f2f2f2;
+  display: none;
+}

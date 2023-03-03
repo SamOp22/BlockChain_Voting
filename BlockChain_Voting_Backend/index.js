@@ -46,24 +46,24 @@ app.post("/Signin", async (req, res) => {
     try {
         const existuser = await User.findOne({ Email: Email });
         if (!existuser) {
-            res.send({ message: "User not found " });
+          return res.send({ message: "User does not exist" });
 
         }
 
         const matchpass = await bcrypt.compare(Password, existuser.Password);
-
+    
         if (!matchpass) {
-            res.send({ message: "invalid credentials" })
+            return res.send({ message: "Invalid credentials" })
         }
 
 
         const token = jwt.sign({ Email: existuser.Email, id: existuser._id }, SECRET_KEY);
-        res.status(201).json({ user: existuser, token: token })
+        return res.status(201).json({user: existuser, token: token })
 
 
     } catch (error) {
         console.log(error);
-        res.send({ message: "went wrong" })
+        return  res.send({ message: "something went wrong" })
 
     }
 
@@ -99,15 +99,15 @@ app.post("/Adminlogin", async (req, res) => {
     try {
         const existadmin = await Admin.findOne({ Email: Email });
         if (!existadmin) {
-            res.send({ message: "User not found " });
+          return res.send({ message: "User not found " });
         }
         if (!(Password === existadmin.Password)) {
-            res.send({ message: "invalid credentials" })
+            return res.send({ message: "invalid credentials" })
         }
-        res.status(201).json({ admin: existadmin })
+        return res.status(201).json({ admin: existadmin })
     }catch(error){
                 console.log(error);
-                res.send({message:"went wrong"})
+                return res.send({message:"went wrong"})
         
              }
 })

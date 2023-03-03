@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import Metamask_mess from "./Metamask_mess";
 import { Instructions } from "./Instructions";
 import Candidates from "./Candidates";
+import configuration from '../abi/Contest.json'
 
 
 
@@ -71,146 +72,11 @@ const Voterpage = (setLoginUser, setVoter, user ) => {
   
 
   const connectContract = async ()=>{
-    const ABI = [
-      {
-        "inputs": [
-          {
-            "internalType": "string",
-            "name": "_name",
-            "type": "string"
-          },
-          {
-            "internalType": "string",
-            "name": "_description",
-            "type": "string"
-          }
-        ],
-        "name": "addContestant",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "enum Contest.PHASE",
-            "name": "x",
-            "type": "uint8"
-          }
-        ],
-        "name": "changeState",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "_contestantId",
-            "type": "uint256"
-          }
-        ],
-        "name": "vote",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "name": "contestants",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "id",
-            "type": "uint256"
-          },
-          {
-            "internalType": "string",
-            "name": "name",
-            "type": "string"
-          },
-          {
-            "internalType": "uint256",
-            "name": "voteCount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "string",
-            "name": "description",
-            "type": "string"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "contestantsCount",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "state",
-        "outputs": [
-          {
-            "internalType": "enum Contest.PHASE",
-            "name": "",
-            "type": "uint8"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "name": "voters",
-        "outputs": [
-          {
-            "internalType": "bool",
-            "name": "hasVoted",
-            "type": "bool"
-          },
-          {
-            "internalType": "uint256",
-            "name": "vote",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ];
-    const Address = "0x19c52156c6fdB55f77a2F8Efe724b32D87848Bab";
+    const ADDRESS = configuration.networks['5777'].address ;
+    const ABI = configuration.abi;
     window.web3 = await new Web3(window.ethereum);
-    window.contract =  await await new window.web3.eth.Contract(ABI,Address);
+    window.contract = await await new window.web3.eth.Contract(ABI,ADDRESS);
    
-  
   }
 
 

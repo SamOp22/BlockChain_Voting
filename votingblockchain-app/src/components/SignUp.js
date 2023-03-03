@@ -80,6 +80,7 @@ function SignUp() {
                   <button onClick={register}>Register </button>
           
                 </form>
+                <div id='errormess'></div>
                 <p onClick={()=> navigate("/SignIn")}>Alreadt have an account... Sign in</p>
               </div>
             </div>

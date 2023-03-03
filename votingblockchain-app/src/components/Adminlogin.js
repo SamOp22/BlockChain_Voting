@@ -26,9 +26,12 @@ function Adminlogin({setAdminn}) {
   const Adminlogin = () =>{
     axios.post("http://localhost:3000/Adminlogin" , admin)
     .then(res => {
-      alert(res.data.message)
+      if(res.data.message){
+        document.getElementById("errormess").style.display = "block";  
+        document.getElementById("errormess").innerHTML = res.data.message
+      }
       setAdminn(res.data.admin)
-      navigate("/Adminpage")
+      navigate("/Adminpage/Changephase")
     })
   }
 
@@ -66,6 +69,7 @@ function Adminlogin({setAdminn}) {
                 
                 <button onClick={Adminlogin}>login</button>  
                 </div>
+                <div id='errormess'></div>
                 
               </div>
             </div>

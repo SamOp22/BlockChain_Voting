@@ -42,6 +42,7 @@ const [user, setLoginUser] = useState({})
   function setVoter(user) {
     localStorage.setItem("User", JSON.stringify(user));
     setLoginUser(user);
+    
   }
 
 
